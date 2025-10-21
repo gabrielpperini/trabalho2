@@ -116,7 +116,6 @@ class QLearningAgent(ReinforcementAgent):
           NOTE: You should never call this function,
           it will be called on your behalf
         """
-        # Q-learning update: Q(s,a) <- Q(s,a) + α[R + γ max Q(s',a') - Q(s,a)]
         sample = reward + self.discount * self.computeValueFromQValues(nextState)
         self.qValues[(state, action)] = (1 - self.alpha) * self.getQValue(state, action) + self.alpha * sample
 
